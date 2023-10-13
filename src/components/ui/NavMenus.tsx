@@ -4,12 +4,12 @@ const menus = [
     {
         id: 1,
         name: "All Deals",
-        link: "/deals"
+        link: "/all-deals"
     },
     {
         id: 2,
         name: "All Items",
-        link: "/items"
+        link: "/all-items"
     },
 ]
 
