@@ -3,8 +3,8 @@ import Link from "next/link"
 const menus = [
     {
         id: 1,
-        name: "All Services",
-        link: "/services"
+        name: "All Deals",
+        link: "/deals"
     },
     {
         id: 2,
