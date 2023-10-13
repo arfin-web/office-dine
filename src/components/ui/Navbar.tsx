@@ -2,9 +2,6 @@ import Link from "next/link"
 import { GoShieldLock, GoUnlock } from 'react-icons/go'
 import NavMenus from "./NavMenus"
 
-const logo = "Office"
-const logo2 = "Dine"
-
 const Navbar = () => {
     return (
         <>
@@ -15,7 +12,9 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-center">
-                    <Link href='/' className="text-xl lg:text-2xl text-primary font-bold">{logo}<span className="text-secondary">{logo2}</span></Link>
+                    <Link href='/'>
+                        <img className="w-20" src="/logo.png" alt="logo" />
+                    </Link>
                 </div>
                 <div className="navbar-end">
                     <div className="hidden lg:flex">
