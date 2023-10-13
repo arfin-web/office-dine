@@ -42,7 +42,7 @@ const LatestBlogs = () => {
                                     <h2 className="card-title">{blog.title}</h2>
                                     <p>{blog.description}</p>
                                     <div className="card-actions justify-start">
-                                        <button className="btn btn-outline btn-primary hover:btn-outline">Read More</button>
+                                        <button className="btn btn-outline btn-primary rounded-full hover:btn-outline">Read More</button>
                                     </div>
                                 </div>
                             </div>

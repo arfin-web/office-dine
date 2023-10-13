@@ -33,7 +33,7 @@ const BestItems = () => {
                                 <figure>
                                     <img src={item.image} alt={item.title} className="rounded-xl" />
                                 </figure>
-                                <h2 className="text-center text-base lg:text-lg font-bold mt-3">{item.title}</h2>
+                                <h2 className="text-center text-lg lg:text-xl font-bold mt-3">{item.title}</h2>
                             </div>
                         ))
                     }
