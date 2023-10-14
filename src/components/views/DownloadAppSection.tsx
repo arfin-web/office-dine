@@ -1,10 +1,9 @@
 import { IoLogoGooglePlaystore, IoLogoAppleAppstore } from 'react-icons/io5'
 import Link from "next/link"
 
-const bgImage = "https://img.freepik.com/free-photo/liquid-marbling-paint-texture-background-fluid-painting-abstract-texture-intensive-color-mix-wallpaper_1258-90692.jpg?w=1060&t=st=1697180364~exp=1697180964~hmac=59b3330c077cbecc8b98085a6ad471456ff2664cab94a0fe77d8a732f5210a47"
+const bgImage = "https://img.freepik.com/free-vector/diwali-modern-web-wide-banner-yellow-background-vector-illustration_1017-39641.jpg?w=1060&t=st=1697290893~exp=1697291493~hmac=4f2ce3eee659de4481b42217d5da4ac30d3e6dbf3b32159a421e55cdda08a3ae"
 const title = "Working for Your Better Health"
 const subTitle = "Download the OfficeDine App today!"
-const appImg = "https://img.freepik.com/free-vector/beauty-yourself-salon-booking-app_52683-38577.jpg?w=740&t=st=1697180241~exp=1697180841~hmac=5efc855a121e79fd933b9a7f6ee39c5eb2b43bf2675e38bc43c4638d6bfbfd77"
 
 const DownloadAppSection = () => {
     return (
@@ -35,7 +34,7 @@ const DownloadAppSection = () => {
                                 </div>
                             </div>
                             <div>
-                                <img src={appImg} className="w-80 lg:w-96" />
+                                <img src="/app.png" className="w-80 lg:w-96" />
                             </div>
                         </div>
                     </div>
