@@ -1,20 +1,20 @@
 const stats = [
     {
         id: 1,
-        title: "Total Items You Bought",
-        value: "20+",
+        title: "Total Deals",
+        value: "200+",
         timeRange: "Jan 1st - Feb 1st"
     },
     {
         id: 2,
-        title: "Your Total Spend",
-        value: "$ 300",
+        title: "Total Items",
+        value: "300+",
         timeRange: "Jan 1st - Feb 1st"
     },
     {
         id: 3,
-        title: "Total Reviews You have Given",
-        value: "10+",
+        title: "Total Profit",
+        value: "$ 10000+",
         timeRange: "Jan 1st - Feb 1st"
     },
 ]
@@ -22,7 +22,7 @@ const stats = [
 const AdminDashboard = () => {
     return (
         <>
-            <div className="container mx-auto px-2 lg:px-5 my-5">
+            <div className="container mx-auto px-2 lg:px-5 mt-5 mb-20 lg:mb-5">
                 <div className="w-full stats stats-vertical lg:stats-horizontal shadow">
                     {
                         stats.map((stat) => (
