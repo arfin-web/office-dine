@@ -1,7 +1,6 @@
 "use client"
 import { useKeenSlider } from "keen-slider/react"
 import "keen-slider/keen-slider.min.css"
-import Navbar from "@/components/ui/Navbar"
 import Link from "next/link"
 
 const title = "Custom Menu Planning"
@@ -112,7 +111,6 @@ const DealDetails = () => {
 
     return (
         <>
-            <Navbar />
             <div className="container mx-auto px-2 lg:px-10 mt-5 mb-20 lg:mb-5">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8">
                     <div className="grid grid-cols-1 gap-y-2 place-items-center">

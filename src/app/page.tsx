@@ -1,3 +1,5 @@
+import BottomNavbar from "@/components/ui/BottomNavbar";
+import Footer from "@/components/ui/Footer";
 import Navbar from "@/components/ui/Navbar";
 import AboutSection from "@/components/views/AboutSection";
 import BestDeals from "@/components/views/BestDeals";
@@ -24,6 +26,8 @@ export default function Home() {
       <LatestBlogs />
       <TestimonialSection />
       <FaqSection />
+      <Footer />
+      <BottomNavbar />
     </div>
   )
 }

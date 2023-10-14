@@ -61,7 +61,9 @@ export default function AdminLayout({
                         {/* Page content here */}
                         <div className="navbar bg-base-100">
                             <div className="flex-1">
-                                <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
+                                <label htmlFor="my-drawer-2" className="btn btn-ghost drawer-button lg:hidden">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="hsl(var(--n))" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"></path></svg>
+                                </label>
                             </div>
                             <div className="flex-none gap-2">
                                 <div className="dropdown dropdown-end">
