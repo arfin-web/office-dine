@@ -1,8 +1,8 @@
-import Link from "next/link"
-
 const avatarImg = "https://img.freepik.com/free-photo/bohemian-man-with-his-arms-crossed_1368-3542.jpg?w=740&t=st=1697192467~exp=1697193067~hmac=a919f78d91bbf83fc207005d92c9ecc8e848e7c7bae964afdb36b665de9859f3"
-const name = "John Doe"
-const userName = "@john_doe"
+const nameTitle = "Name"
+const namePlaceHolder = "Edit Your Name"
+const usernameTitle = "User Name"
+const userNamePlaceHolder = "Edit Your User Name"
 
 const profileDetails = [
     {
@@ -22,40 +22,44 @@ const profileDetails = [
     }
 ]
 
-const MyProfile = () => {
+const EditProfile = () => {
     return (
         <>
-            <div className="container mx-auto px-2 lg:px-5 my-5">
+            <div className="container mx-auto px-2 lg:px-5 mt-5 mb-20 lg:mb-5">
                 <div className="grid grid-cols-1 gap-2 place-items-center lg:place-items-start">
                     <div className="avatar">
                         <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
                             <img src={avatarImg} alt="avatar" />
                         </div>
                     </div>
-                    <h1 className="text-xl lg:text-2xl text-primary font-bold mt-3">{name}</h1>
-                    <h5>{userName}</h5>
-                    <Link href='/edit-profile' className="btn btn-outline btn-primary rounded-full mt-5">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="hsl(var(--p))" viewBox="0 0 256 256"><path d="M227.32,73.37,182.63,28.69a16,16,0,0,0-22.63,0L36.69,152A15.86,15.86,0,0,0,32,163.31V208a16,16,0,0,0,16,16H216a8,8,0,0,0,0-16H115.32l112-112A16,16,0,0,0,227.32,73.37ZM136,75.31,152.69,92,68,176.69,51.31,160ZM48,208V179.31L76.69,208Zm48-3.31L79.32,188,164,103.31,180.69,120Zm96-96L147.32,64l24-24L216,84.69Z"></path></svg>
-                        Edit Profile
-                    </Link>
+                    <h3 className="text-xl font-semibold my-4">Choose Your<span className="text-primary"> Profile Picture</span></h3>
+                    <input type="file" className="file-input file-input-bordered file-input-primary rounded-full w-full lg:w-96 mb-5" />
+                    <div className="join rounded-full w-80">
+                        <button className="btn join-item rounded-r-full text-primary font-semibold">{nameTitle}</button>
+                        <input className="input input-bordered join-item" placeholder={namePlaceHolder} />
+                    </div>
+                    <div className="join rounded-full w-80">
+                        <button className="btn join-item rounded-r-full text-primary font-semibold">{usernameTitle}</button>
+                        <input className="input input-bordered join-item" placeholder={userNamePlaceHolder} />
+                    </div>
                 </div>
                 <div className="card bg-base-100 mt-8">
-                    <h1 className="text-xl lg:text-2xl text-center lg:text-start font-bold mb-4">More<span className="text-primary"> Details</span></h1>
+                    <h1 className="text-xl lg:text-2xl text-center lg:text-start font-bold mb-4">Edit<span className="text-primary"> Details</span></h1>
                     <div className="card-body">
                         {
                             profileDetails.map((detail) => (
-                                <div key={detail.id} className="flex justify-start items-center space-x-3 hover:text-primary mb-4">
-                                    <div className="avatar">
-                                        <div className="mask mask-squircle">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="hsl(var(--p))" viewBox="0 0 256 256"><path d={detail.Icon}></path></svg>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <h3 className="text-lg font-bold">{detail.text}</h3>
-                                    </div>
+                                <div className="join rounded-full" key={detail.id}>
+                                    <button className="btn join-item rounded-r-full text-primary font-semibold">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="hsl(var(--p))" viewBox="0 0 256 256"><path d={detail.Icon}></path></svg>
+                                    </button>
+                                    <input className="input input-bordered join-item" placeholder={detail.text} />
                                 </div>
                             ))
                         }
+                        <button className="btn btn-outline btn-primary rounded-full btn-wide mt-4">
+                            Confirm
+                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="hsl(var(--p))" viewBox="0 0 256 256"><path d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"></path></svg>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -63,4 +67,4 @@ const MyProfile = () => {
     )
 }
 
-export default MyProfile
+export default EditProfile

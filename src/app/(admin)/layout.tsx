@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import { PiShoppingCartLight } from 'react-icons/pi'
 
 const avatarImg = "https://img.freepik.com/free-photo/bohemian-man-with-his-arms-crossed_1368-3542.jpg?w=740&t=st=1697192467~exp=1697193067~hmac=a919f78d91bbf83fc207005d92c9ecc8e848e7c7bae964afdb36b665de9859f3"
 
@@ -65,10 +64,6 @@ export default function AdminLayout({
                                 <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
                             </div>
                             <div className="flex-none gap-2">
-                                <button className="btn btn-ghost">
-                                    <span className='text-2xl'><PiShoppingCartLight /></span>
-                                    <div className="badge badge-primary">3</div>
-                                </button>
                                 <div className="dropdown dropdown-end">
                                     <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                                         <div className="w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
@@ -88,6 +83,7 @@ export default function AdminLayout({
                                 </div>
                             </div>
                         </div>
+                        <hr />
                         {children}
                     </div>
                     <div className="drawer-side">
