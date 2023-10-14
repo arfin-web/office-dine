@@ -1,13 +1,13 @@
-const image = "https://img.freepik.com/free-photo/vertical-shot-pretty-black-businesswoman-examines-charts-papers_273609-18039.jpg?w=360&t=st=1697279651~exp=1697280251~hmac=fac8520309c6f85d58b71c0c80b2af6a5e677fa4a89fdaf42256350372678091"
+const image = "https://img.freepik.com/free-photo/feedback-comment-survey-support-response-bar-word_53876-133786.jpg?w=360&t=st=1697285026~exp=1697285626~hmac=16694f3792ad62aff7232e8cd8a4be0b86faf682cafe0fe0a38497e2fabf0082"
 
-const AddNewAdmin = () => {
+const GiveFeedback = () => {
     return (
         <>
             <div className="container mx-auto px-2 lg:px-5 mt-5 mb-20 lg:mb-5">
                 <div className="card lg:card-side bg-base-100 shadow-xl">
                     <figure><img src={image} alt="image" /></figure>
                     <div className="card-body">
-                        <h3 className="text-2xl font-bold text-center">Add New<span className="text-primary"> Admin</span></h3>
+                        <h3 className="text-2xl font-bold text-center">Give Your<span className="text-primary"> Feedback</span></h3>
                         <form className="card-body">
                             <div className="form-control">
                                 <label className="label">
@@ -23,9 +23,9 @@ const AddNewAdmin = () => {
                             </div>
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text">Password</span>
+                                    <span className="label-text">Your Feedback</span>
                                 </label>
-                                <input type="password" placeholder="password" className="input input-bordered rounded-full" required />
+                                <textarea className="textarea textarea-bordered rounded-full" placeholder="G9ive us your valuable Feedback"></textarea>
                             </div>
                             <div className="form-control mt-2">
                                 <button className="btn btn-outline btn-primary rounded-full btn-wide mt-4">
@@ -41,4 +41,4 @@ const AddNewAdmin = () => {
     )
 }
 
-export default AddNewAdmin
+export default GiveFeedback

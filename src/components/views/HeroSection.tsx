@@ -1,3 +1,5 @@
+import Link from "next/link"
+
 const title = "Welcome"
 const colorTitle = "Food Lover"
 const description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
@@ -13,10 +15,10 @@ const HeroSection = () => {
                         <img className="hidden lg:block" src="/heroImgOne.png" alt="heroImgOne" />
                     </div>
                     <div>
-                        <h1 className="text-3xl text-center font-bold mb-4">{title}<span className="text-primary"> {colorTitle}</span></h1>
+                        <h1 className="text-3xl lg:text-5xl text-center font-bold mb-4">{title}<span className="text-primary"> {colorTitle}</span></h1>
                         <p className="text-center mb-4">{description}</p>
                         <div className="flex justify-center items-center">
-                            <button className="btn btn-wide btn-primary rounded-full normal-case text-xl">{buttonText}</button>
+                            <Link href="/all-deals" className="btn btn-wide btn-primary rounded-full normal-case text-xl">{buttonText}</Link>
                         </div>
                     </div>
                     <div>
