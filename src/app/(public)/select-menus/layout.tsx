@@ -2,12 +2,17 @@
 import Navbar from "@/components/ui/Navbar"
 import { useAppSelector, useAppDispatch } from "@/redux/hooks"
 import { deleteItem } from "@/redux/features/cartSlice"
+import foodItems from "@/data/foodItems"
+import { MdRadioButtonChecked } from 'react-icons/md'
+import { useState } from "react";
+import Link from "next/link"
 
 export default function UserLayout({
     children,
 }: {
     children: React.ReactNode
 }) {
+    const [selectedMenu, setSelectedMenu] = useState(null);
     const cart = useAppSelector((state) => state.cart.items)
     const dispatch = useAppDispatch()
     return (
@@ -26,7 +31,7 @@ export default function UserLayout({
                             </div>
                             <div className="navbar-center">
                                 <div className="form-control">
-                                    <input type="text" placeholder="Search" className="input input-bordered input-sm lg:input-md rounded-full w-auto" />
+                                    <input type="text" placeholder="Search" className="input input-bordered input-sm lg:input-md rounded-full w-auto lg:w-96" />
                                 </div>
                             </div>
                             <div className="navbar-end">
@@ -41,9 +46,24 @@ export default function UserLayout({
                     </div>
                     <div className="drawer-side">
                         <label htmlFor="my-drawer-2" aria-label="close sidebar" className="drawer-overlay"></label>
-                        <ul className="menu p-4 w-60 min-h-full bg-base-200 text-base-content">
+                        <div className="p-4 w-60 min-h-full bg-base-200 text-base-content">
                             {/* Sidebar content here */}
-                        </ul>
+                            <h1 className="text-xl font-bold text-center my-5">Set<span className="text-primary"> Filter</span></h1>
+                            <input type="range" min={0} max="100" className="range range-primary" />
+                            <h1 className="text-xl text-primary font-bold mt-5 mb-3">Categories</h1>
+                            <ul className="menu">
+                                {
+                                    foodItems.map((food: any) => (
+                                        <Link href="/select-menus" key={food.id} onClick={() => setSelectedMenu(food.id)} className="mb-2">
+                                            <div className={`flex justify-start items-center text-lg lg:text-xl ${selectedMenu === food.id ? 'text-primary' : 'text-neutral'}`}>
+                                                <span className="mr-2"><MdRadioButtonChecked /></span>
+                                                <p>{food.category}</p>
+                                            </div>
+                                        </Link>
+                                    ))
+                                }
+                            </ul>
+                        </div>
                     </div>
                 </div>
 
@@ -60,7 +80,7 @@ export default function UserLayout({
                                             <td>
                                                 <div className="flex items-center space-x-3">
                                                     <div className="avatar">
-                                                        <div className="mask mask-squircle w-12 h-12">
+                                                        <div className="mask mask-squircle w-6 h-6 lg:w-10 lg:h-10">
                                                             <img src={item.image} alt={item.name} />
                                                         </div>
                                                     </div>
@@ -74,8 +94,8 @@ export default function UserLayout({
                                                 <div className="font-bold text-primary">$ {item.price}</div>
                                             </td>
                                             <th>
-                                                <button onClick={() => dispatch(deleteItem(item))} className="btn btn-circle btn-error">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="hsl(var(--b1))" viewBox="0 0 256 256"><path d="M216,48H176V40a24,24,0,0,0-24-24H104A24,24,0,0,0,80,40v8H40a8,8,0,0,0,0,16h8V208a16,16,0,0,0,16,16H192a16,16,0,0,0,16-16V64h8a8,8,0,0,0,0-16ZM96,40a8,8,0,0,1,8-8h48a8,8,0,0,1,8,8v8H96Zm96,168H64V64H192ZM112,104v64a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0Zm48,0v64a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0Z"></path></svg>
+                                                <button onClick={() => dispatch(deleteItem(item))} className="btn btn-circle btn-error btn-sm lg:btn-md">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 lg:w-8 lg:h-8" fill="hsl(var(--b1))" viewBox="0 0 256 256"><path d="M216,48H176V40a24,24,0,0,0-24-24H104A24,24,0,0,0,80,40v8H40a8,8,0,0,0,0,16h8V208a16,16,0,0,0,16,16H192a16,16,0,0,0,16-16V64h8a8,8,0,0,0,0-16ZM96,40a8,8,0,0,1,8-8h48a8,8,0,0,1,8,8v8H96Zm96,168H64V64H192ZM112,104v64a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0Zm48,0v64a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0Z"></path></svg>
                                                 </button>
                                             </th>
                                         </tr>
@@ -84,7 +104,7 @@ export default function UserLayout({
                             </table>
                         </div>
                         <div className="modal-action">
-                            <label htmlFor="my_modal_6" className="btn">Close!</label>
+                            <label htmlFor="my_modal_6" className="btn btn-sm">Close!</label>
                         </div>
                     </div>
                 </div>
