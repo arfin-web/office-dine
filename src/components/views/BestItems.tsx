@@ -13,7 +13,7 @@ const BestItems = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-6 place-items-center">
                     {
                         foodItems.slice(0, 3).map(item => (
-                            <div className="card bg-base-100 hover:shadow-lg" key={item.id}>
+                            <div className="card bg-base-100 hover:shadow-lg animate__animated animate__backInRight" key={item.id}>
                                 <figure>
                                     <img src={item.image} alt={item.name} className="rounded-xl" />
                                 </figure>

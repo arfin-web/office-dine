@@ -33,7 +33,7 @@ const HowItWorksSection = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 place-items-center">
                     <div className="rounded-full border-2 border-secondary p-2 overflow-hidden lg:place-self-start">
                         <div className="rounded-full border-dotted border-2 border-primary overflow-hidden">
-                            <img className="w-80 lg:w-96" src={picture} alt="hero-image" />
+                            <img className="w-80 lg:w-96 animate__animated animate__bounceInLeft" src={picture} alt="hero-image" />
                         </div>
                     </div>
                     <div>
@@ -43,7 +43,7 @@ const HowItWorksSection = () => {
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 place-items-start mt-5">
                             {
                                 steps.map(step => (
-                                    <div className="flex justify-center items-center space-x-3 hover:text-primary" key={step.id}>
+                                    <div className="flex justify-center items-center space-x-3 hover:text-primary animate__animated animate__bounceInRight" key={step.id}>
                                         <div className="avatar">
                                             <div className="mask mask-squircle w-12 h-12">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="hsl(var(--p))" viewBox="0 0 256 256"><path d={step.icon}></path></svg>

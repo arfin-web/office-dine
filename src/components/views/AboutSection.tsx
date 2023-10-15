@@ -9,7 +9,7 @@ const AboutSection = () => {
             <div className="bg-opacity-20"></div>
             <div className="hero-content text-center">
                 <div className="max-w-md">
-                    <h1 className="mb-5 text-3xl lg:text-5xl font-bold">{title}<span className="text-primary"> {colorTitle}</span></h1>
+                    <h1 className="mb-5 text-3xl lg:text-5xl font-bold animate__animated animate__bounceInDown">{title}<span className="text-primary"> {colorTitle}</span></h1>
                     <p className="mb-5">{description}</p>
                 </div>
             </div>

@@ -13,7 +13,7 @@ const Navbar = () => {
                 </div>
                 <div className="navbar-center">
                     <Link href='/'>
-                        <img className="w-20" src="/logo.png" alt="logo" />
+                        <img className="w-20 animate__animated animate__heartBeat" src="/logo.png" alt="logo" />
                     </Link>
                 </div>
                 <div className="navbar-end">

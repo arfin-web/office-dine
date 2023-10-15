@@ -33,12 +33,12 @@ const faqs = [
 const FaqSection = () => {
     return (
         <>
-            <div className="container mx-auto px-2 lg:px-10 py-5 my-10">
+            <div className="container mx-auto px-2 lg:px-10 py-5 mt-5 mb-20 lg:mb-5">
                 <h1 className="text-2xl lg:text-4xl text-center font-bold mb-16">{title}<span className="text-primary"> {colorTitle}</span></h1>
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 place-items-center">
                     <div className="rounded-2xl border-2 border-primary p-2 overflow-hidden lg:place-self-start">
                         <div className="rounded-2xl border-dotted border-2 border-primary overflow-hidden">
-                            <img className="h-80 lg:h-96" src={picture} alt="hero-image" />
+                            <img className="h-80 lg:h-96 animate__animated animate__slideInLeft" src={picture} alt="hero-image" />
                         </div>
                     </div>
                     <div>

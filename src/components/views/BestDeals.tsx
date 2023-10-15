@@ -38,7 +38,7 @@ const BestDeals = () => {
                     {
                         bestDeals.map(deal => (
                             <Link href="/deal-details">
-                                <div className="card bg-base-100 hover:shadow-lg" key={deal.id}>
+                                <div className="card bg-base-100 hover:shadow-lg animate__animated animate__backInLeft" key={deal.id}>
                                     <figure><img src={deal.image} alt={deal.title} /></figure>
                                     <div className="card-body">
                                         <h2 className="card-title">

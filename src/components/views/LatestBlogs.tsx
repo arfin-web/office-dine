@@ -36,7 +36,7 @@ const LatestBlogs = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 place-items-center">
                     {
                         blogs.map(blog => (
-                            <div className="card lg:card-side bg-base-100 lg:py-5 lg:pl-5 shadow-md" key={blog.id}>
+                            <div className="card lg:card-side bg-base-100 lg:py-5 lg:pl-5 shadow-md animate__animated animate__slideInLeft" key={blog.id}>
                                 <figure><img className="h-full" src={blog.image} alt={blog.title} /></figure>
                                 <div className="card-body">
                                     <h2 className="card-title">{blog.title}</h2>
