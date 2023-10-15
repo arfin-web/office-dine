@@ -6,7 +6,7 @@ const BottomNavbar = () => {
         <>
             <div className="btm-nav lg:hidden">
                 <button className="text-primary">
-                    <Link href='/'>
+                    <Link href='/all-deals'>
                         <span className='text-2xl'><PiBowlFoodThin /></span>
                     </Link>
                 </button>
@@ -16,7 +16,7 @@ const BottomNavbar = () => {
                     </Link>
                 </button>
                 <button className="text-primary">
-                    <Link href='/'>
+                    <Link href='/mobile-profile'>
                         <span className='text-2xl'><PiUserCircleGearThin /></span>
                     </Link>
                 </button>

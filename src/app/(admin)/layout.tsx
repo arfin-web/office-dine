@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { UserButton } from "@clerk/nextjs";
 
 const avatarImg = "https://img.freepik.com/free-photo/bohemian-man-with-his-arms-crossed_1368-3542.jpg?w=740&t=st=1697192467~exp=1697193067~hmac=a919f78d91bbf83fc207005d92c9ecc8e848e7c7bae964afdb36b665de9859f3"
 
@@ -66,22 +67,10 @@ export default function AdminLayout({
                                 </label>
                             </div>
                             <div className="flex-none gap-2">
-                                <div className="dropdown dropdown-end">
-                                    <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                                        <div className="w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                                            <img src={avatarImg} alt='profile-pic' />
-                                        </div>
-                                    </label>
-                                    <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
-                                        <li>
-                                            <a className="justify-between">
-                                                Dashboard
-                                                <span className="badge">New</span>
-                                            </a>
-                                        </li>
-                                        <li><a>Settings</a></li>
-                                        <li><a>Logout</a></li>
-                                    </ul>
+                                <div className="avatar mr-2">
+                                    <div className="rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                                        <UserButton afterSignOutUrl="/" />
+                                    </div>
                                 </div>
                             </div>
                         </div>
