@@ -1,3 +1,5 @@
+import { IoCheckmarkDoneCircleOutline } from 'react-icons/io5'
+
 const avatarImg = "https://img.freepik.com/free-photo/bohemian-man-with-his-arms-crossed_1368-3542.jpg?w=740&t=st=1697192467~exp=1697193067~hmac=a919f78d91bbf83fc207005d92c9ecc8e848e7c7bae964afdb36b665de9859f3"
 const nameTitle = "Name"
 const namePlaceHolder = "Edit Your Name"
@@ -56,12 +58,24 @@ const EditProfile = () => {
                                 </div>
                             ))
                         }
-                        <button className="btn btn-outline btn-primary rounded-full btn-wide mt-4">
+                        <label htmlFor="my_modal_7" className="btn btn-outline btn-primary rounded-full btn-wide mt-4">
                             Confirm
                             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="hsl(var(--p))" viewBox="0 0 256 256"><path d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"></path></svg>
-                        </button>
+                        </label>
                     </div>
                 </div>
+            </div>
+
+            {/* Put this part before </body> tag */}
+            <input type="checkbox" id="my_modal_7" className="modal-toggle" />
+            <div className="modal">
+                <div className="modal-box">
+                    <div className="grid grid-cols-1 place-items-center">
+                        <h1 className='text-center text-8xl text-primary'><IoCheckmarkDoneCircleOutline /></h1>
+                        <h3 className="text-center text-lg font-semibold my-4">Successfully Updated</h3>
+                    </div>
+                </div>
+                <label className="modal-backdrop" htmlFor="my_modal_7">Close</label>
             </div>
         </>
     )

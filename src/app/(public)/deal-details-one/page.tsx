@@ -70,7 +70,7 @@ function ThumbnailPlugin(mainRef: any) {
     }
 }
 
-const DealDetails = () => {
+const DealDetailsOne = () => {
 
     const [sliderRef, instanceRef] = useKeenSlider({
         initial: 0,
@@ -161,4 +161,4 @@ const DealDetails = () => {
     )
 }
 
-export default DealDetails
+export default DealDetailsOne

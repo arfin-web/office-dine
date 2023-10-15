@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from 'next/image'
 
 const title = "Welcome"
 const colorTitle = "Food Lover"
@@ -11,8 +12,20 @@ const HeroSection = () => {
             <div className="container mx-auto px-2 lg:px-10">
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-2 lg:gap-4 place-items-center">
                     <div>
-                        <img className="lg:hidden" src="/mobileHeroImg.png" alt="mobileHeroImg" />
-                        <img className="hidden lg:block animate__animated animate__backInLeft" src="/heroImgOne.png" alt="heroImgOne" />
+                        <Image
+                            src="/mobileHeroImg.png"
+                            width={500}
+                            height={500}
+                            alt="mobileHeroImg"
+                            className="lg:hidden animate__animated animate__backInLeft"
+                        />
+                        <Image
+                            src="/heroImgOne.png"
+                            width={500}
+                            height={500}
+                            alt="heroImgOne"
+                            className="hidden lg:block animate__animated animate__backInLeft"
+                        />
                     </div>
                     <div>
                         <h1 className="text-3xl lg:text-5xl text-center font-bold mb-4 animate__animated animate__backInDown">{title}<span className="text-primary"> {colorTitle}</span></h1>
@@ -22,7 +35,13 @@ const HeroSection = () => {
                         </div>
                     </div>
                     <div>
-                        <img className="hidden lg:block animate__animated animate__backInRight" src="/heroImgTwo.png" alt="heroImgTwo" />
+                        <Image
+                            src="/heroImgTwo.png"
+                            width={500}
+                            height={500}
+                            alt="heroImgTwo"
+                            className="hidden lg:block animate__animated animate__backInRight"
+                        />
                     </div>
                 </div>
             </div>

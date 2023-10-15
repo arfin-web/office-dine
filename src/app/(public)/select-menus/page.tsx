@@ -3,6 +3,7 @@ import { useState } from "react";
 import foodItems from '@/data/foodItems'
 import { useAppSelector, useAppDispatch } from "@/redux/hooks"
 import { addItem } from '@/redux/features/cartSlice'
+import Link from "next/link";
 
 const title = "All"
 const colorTitle = "Items"
@@ -159,6 +160,11 @@ const SelectMenus = () => {
                                 ))
                             }
                         </table>
+                    </div>
+                    <div className="flex justify-center items-center">
+                        <Link href='/place-order' className="btn btn-outline btn-primary rounded-full btn-wide mt-4">
+                            Place Order
+                        </Link>
                     </div>
                     <div className="modal-action">
                         <label htmlFor="my_modal_6" className="btn btn-sm">Close!</label>

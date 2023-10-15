@@ -1,7 +1,8 @@
+import Image from 'next/image'
+
 const title = "How it Works"
 const subTitle = "4 easy steps to Grab"
 const description = "Lorem ipsum dolor consectetur adipiscing elit,sed do eiusmod tempor"
-const picture = "https://img.freepik.com/free-vector/aerial-view-food-plate_1308-47998.jpg?w=740&t=st=1697178422~exp=1697179022~hmac=43ecc5ee0bf726701015c80568ad506525b709953b259f4b375ebcbbc061f036"
 
 const steps = [
     {
@@ -31,11 +32,13 @@ const HowItWorksSection = () => {
         <>
             <div className="container mx-auto px-2 lg:px-10 py-5 my-10">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 place-items-center">
-                    <div className="rounded-full border-2 border-secondary p-2 overflow-hidden lg:place-self-start">
-                        <div className="rounded-full border-dotted border-2 border-primary overflow-hidden">
-                            <img className="w-80 lg:w-96 animate__animated animate__bounceInLeft" src={picture} alt="hero-image" />
-                        </div>
-                    </div>
+                    <Image
+                        src="/steps.png"
+                        width={500}
+                        height={500}
+                        alt="Steps"
+                        className="animate__animated animate__bounceInLeft"
+                    />
                     <div>
                         <h3 className="text-xl text-primary text-center lg:text-start font-bold mb-5">{title} </h3>
                         <h3 className="text-2xl lg:text-4xl text-center lg:text-start font-bold mb-5">{subTitle} </h3>

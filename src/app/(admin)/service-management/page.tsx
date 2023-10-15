@@ -1,29 +1,20 @@
-const deals = [
-    {
-        id: 1,
-        title: "Custom Menu Planning",
-        image: "https://img.freepik.com/free-photo/top-view-arrangement-with-meal-planning-notebook_23-2149099890.jpg?w=996&t=st=1697120170~exp=1697120770~hmac=c991a50462f9adac2c6439b3ac6d13d1d42dc897a89ab3d4eac2bf5e5be45031",
-        date: "20-08-2023"
-    },
-    {
-        id: 2,
-        title: "Custom Menu Planning",
-        image: "https://img.freepik.com/free-photo/top-view-arrangement-with-meal-planning-notebook_23-2149099890.jpg?w=996&t=st=1697120170~exp=1697120770~hmac=c991a50462f9adac2c6439b3ac6d13d1d42dc897a89ab3d4eac2bf5e5be45031",
-        date: "20-08-2023"
-    },
-    {
-        id: 3,
-        title: "Custom Menu Planning",
-        image: "https://img.freepik.com/free-photo/top-view-arrangement-with-meal-planning-notebook_23-2149099890.jpg?w=996&t=st=1697120170~exp=1697120770~hmac=c991a50462f9adac2c6439b3ac6d13d1d42dc897a89ab3d4eac2bf5e5be45031",
-        date: "20-08-2023"
-    },
-]
+import deals from "@/data/deals"
+import { IoCheckmarkDoneCircleOutline } from 'react-icons/io5'
 
 const ServiceManagement = () => {
     return (
         <>
             <div className="container mx-auto px-2 lg:px-10 mt-5 mb-20 lg:mb-5">
-                <h1 className="text-2xl font-bold mb-5">Manage Your<span className="text-primary"> Services</span></h1>
+                <div className="navbar bg-base-100">
+                    <div className="navbar-start">
+                        <h1 className="text-2xl font-bold mb-5">Manage Your<span className="text-primary"> Services</span></h1>
+                    </div>
+                    <div className="navbar-center hidden lg:flex">
+                    </div>
+                    <div className="navbar-end">
+                        <label htmlFor="my_modal_6" className="btn btn-outline btn-primary btn-sm lg:btn-md rounded-full font-semibold">Add New</label>
+                    </div>
+                </div>
                 <div className="overflow-x-auto">
                     <table className="table">
                         {/* head */}
@@ -51,7 +42,7 @@ const ServiceManagement = () => {
                                             </div>
                                         </td>
                                         <td>
-                                            {item.date}
+                                            {item.tags}
                                         </td>
                                         <td>
                                             <div className="flex justify-start items-center">
@@ -69,6 +60,55 @@ const ServiceManagement = () => {
                         </tbody>
                     </table>
                 </div>
+            </div>
+
+            {/* Put this part before </body> tag */}
+            <input type="checkbox" id="my_modal_6" className="modal-toggle" />
+            <div className="modal">
+                <div className="modal-box">
+                    <h3 className="text-2xl font-bold text-center">Add New<span className="text-primary"> Service</span></h3>
+                    <form className="card-body">
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Upload Image</span>
+                            </label>
+                            <input type="file" className="file-input file-input-bordered file-input-primary rounded-full" required />
+                        </div>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Title</span>
+                            </label>
+                            <input type="text" placeholder="Write Service Title" className="input input-bordered input-primary rounded-full" required />
+                        </div>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Description</span>
+                            </label>
+                            <textarea className="textarea textarea-primary rounded-full" placeholder="Write Description" required></textarea>
+                        </div>
+                        <div className="form-control mt-2">
+                            <label htmlFor="my_modal_7" className="btn btn-outline btn-primary rounded-full btn-wide mt-4">
+                                Confirm
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="hsl(var(--p))" viewBox="0 0 256 256"><path d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"></path></svg>
+                            </label>
+                        </div>
+                    </form>
+                    <div className="modal-action">
+                        <label htmlFor="my_modal_6" className="btn btn-sm lg:btn-md">Close!</label>
+                    </div>
+                </div>
+            </div>
+
+            {/* Put this part before </body> tag */}
+            <input type="checkbox" id="my_modal_7" className="modal-toggle" />
+            <div className="modal">
+                <div className="modal-box">
+                    <div className="grid grid-cols-1 place-items-center">
+                        <h1 className='text-center text-8xl text-primary'><IoCheckmarkDoneCircleOutline /></h1>
+                        <h3 className="text-center text-lg font-semibold my-4">Successfully Added</h3>
+                    </div>
+                </div>
+                <label className="modal-backdrop" htmlFor="my_modal_7">Close</label>
             </div>
         </>
     )

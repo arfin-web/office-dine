@@ -7,15 +7,15 @@ const users = [
     },
     {
         id: 2,
-        name: "John Doe",
-        image: "https://img.freepik.com/free-photo/bohemian-man-with-his-arms-crossed_1368-3542.jpg?w=740&t=st=1697192467~exp=1697193067~hmac=a919f78d91bbf83fc207005d92c9ecc8e848e7c7bae964afdb36b665de9859f3",
-        date: "20-08-2023"
+        name: "Abraham",
+        image: "https://img.freepik.com/free-photo/portrait-man-laughing_23-2148859448.jpg?w=740&t=st=1697379321~exp=1697379921~hmac=e5bedd497bf5a214efe31475299ed33f2a04329791bdf8c632addae4d1f874f2",
+        date: "24-08-2023"
     },
     {
         id: 3,
-        name: "John Doe",
-        image: "https://img.freepik.com/free-photo/bohemian-man-with-his-arms-crossed_1368-3542.jpg?w=740&t=st=1697192467~exp=1697193067~hmac=a919f78d91bbf83fc207005d92c9ecc8e848e7c7bae964afdb36b665de9859f3",
-        date: "20-08-2023"
+        name: "Linoln",
+        image: "https://img.freepik.com/free-photo/portrait-white-man-isolated_53876-40306.jpg?w=826&t=st=1697379366~exp=1697379966~hmac=cda744fde9369eef942c23f0fb7eb31204c363d39b275837fc20d011b1c69a87",
+        date: "27-08-2023"
     },
 ]
 

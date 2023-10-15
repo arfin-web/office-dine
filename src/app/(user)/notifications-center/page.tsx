@@ -1,17 +1,17 @@
 const notifications = [
     {
         id: 1,
-        message: 'This is a Info notification',
+        message: 'OfficeDine Mobile App is Coming Soon!',
         type: 'chat-bubble-info',
     },
     {
         id: 2,
-        message: "This is a warning notification",
+        message: "Use Authourized Payment Methods",
         type: 'chat-bubble-warning',
     },
     {
         id: 3,
-        message: "And this an error notification!",
+        message: "Authenticatiobn Failed!",
         type: 'chat-bubble-error'
     }
 ]
