@@ -9,7 +9,7 @@ const DownloadAppSection = () => {
     return (
         <>
             <div className="container mx-auto px-2 lg:px-10 py-5 my-10">
-                <div className="card w-full lg:card-side bg-base-100 shadow-xl image-full">
+                <div className="card w-full lg:card-side bg-base-100 shadow-xl image-full z-0">
                     <figure><img src={bgImage} alt="Album" /></figure>
                     <div className="card-body">
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 place-items-center">
