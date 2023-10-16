@@ -11,6 +11,7 @@ const subTitle = "Pick The Best Option For You"
 
 const SelectMenus = () => {
     const [searchQuery, setSearchQuery] = useState('');
+    const [priceRange, setPriceRange] = useState(20);
     const [selectedCategory, setSelectedCategory] = useState('');
     const cart = useAppSelector((state) => state.cart.items)
     const dispatch = useAppDispatch()
@@ -34,6 +35,13 @@ const SelectMenus = () => {
             })
             : searchedItems;
     const categories = Array.from(new Set(foodItems?.map((food) => food.category)));
+
+    const filteredItems = filteredfoods.filter((item) => item.price <= priceRange);
+
+    // Function to update the price range
+    const handlePriceChange = (e: any) => {
+        setPriceRange(parseFloat(e.target.value));
+    };
 
     return (
         <>
@@ -70,14 +78,14 @@ const SelectMenus = () => {
                         <p className="text-center mb-10">{subTitle}</p>
                         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 place-items-center">
                             {
-                                filteredfoods.map(item => (
+                                filteredItems.map(item => (
                                     <div className="card w-80 bg-base-100 hover:shadow-lg" key={item.id}>
                                         <figure className='px-3'>
                                             <img src={item.image} alt={item.name} className="rounded-xl" />
                                         </figure>
                                         <h2 className="text-center text-lg lg:text-xl font-bold my-3">{item.name}</h2>
                                         <h2 className="my-2 text-sm font-bold tracking-wide uppercase">{item.category}</h2>
-                                        <h3 className='text-lg lg:text-xl'>Price:<span className='text-primary font-bold'> $ {item.price}</span></h3>
+                                        <h3 className='text-lg lg:text-xl'>Price:<span className='text-primary font-bold'> $ {item.price.toFixed(2)}</span></h3>
                                         <div className='flex justify-center items-center my-4'>
                                             <button onClick={() => dispatch(addItem(item))} className="btn btn-outline btn-primary btn-sm normal-case rounded-full">Add To Plate</button>
                                         </div>
@@ -92,7 +100,16 @@ const SelectMenus = () => {
                     <div className="p-4 w-60 min-h-full bg-base-200 text-base-content">
                         {/* Sidebar content here */}
                         <h1 className="text-2xl font-bold text-center my-5">Set<span className="text-primary"> Filter</span></h1>
-                        <input type="range" min={0} max="100" className="range range-primary" />
+                        <input
+                            type="range"
+                            min="0"
+                            max="20" // Set the maximum price range value
+                            step="0.01" // Set the step (increments) for the range
+                            value={priceRange}
+                            onChange={handlePriceChange}
+                            className="range range-primary"
+                        />
+                        <span className="ml-2 font-semibold text-primary text-base">${priceRange.toFixed(2)}</span>
                         <h1 className="text-xl text-primary font-bold mt-5 mb-3">Categories</h1>
                         <div className="grid grid-cols-1">
                             <label className="mb-2">

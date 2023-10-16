@@ -2,6 +2,7 @@
 import { useKeenSlider } from "keen-slider/react"
 import "keen-slider/keen-slider.min.css"
 import Link from "next/link"
+import PackageReviews from "@/components/views/PackageReviews"
 
 const title = "Regular Meal Delivery"
 const description = `A Regular Meal Delivery service for your business.
@@ -157,6 +158,7 @@ const DealDetailsTwo = () => {
                     </div>
                 </div>
             </div>
+            <PackageReviews />
         </>
     )
 }
