@@ -58,7 +58,7 @@ export default function AdminLayout({
             <body>
                 <div className="drawer lg:drawer-open">
                     <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-                    <div className="drawer-content">
+                    <div className="drawer-content overflow-x-hidden">
                         {/* Page content here */}
                         <div className="navbar bg-base-100">
                             <div className="flex-1">

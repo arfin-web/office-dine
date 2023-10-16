@@ -6,11 +6,11 @@ const GiveFeedback = () => {
     return (
         <>
             <div className="container mx-auto px-2 lg:px-5 mt-5 mb-20 lg:mb-5">
-                <div className="card lg:card-side bg-base-100 shadow-xl">
+                <div className="card w-80 lg:w-auto lg:card-side bg-base-100 shadow-xl ml-3 lg:ml-0">
                     <figure><img src={image} alt="image" /></figure>
                     <div className="card-body">
                         <h3 className="text-2xl font-bold text-center">Give Your<span className="text-primary"> Feedback</span></h3>
-                        <form className="card-body">
+                        <form>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Name</span>

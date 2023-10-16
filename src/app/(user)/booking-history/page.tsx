@@ -20,7 +20,7 @@ const BookingHistory = () => {
         <>
             <div className="container mx-auto px-2 lg:px-10 mt-5 mb-20 lg:mb-5">
                 <h1 className="text-2xl font-bold mb-5">Booking<span className="text-primary"> History</span></h1>
-                <div className="overflow-x-auto">
+                <div className="overflow-x-scroll">
                     <table className="table">
                         {/* head */}
                         <thead>
