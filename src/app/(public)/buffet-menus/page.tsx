@@ -9,34 +9,7 @@ const title = "All"
 const colorTitle = "Items"
 const subTitle = "Pick The Best Option For You"
 
-const days = [
-    {
-        id: 1,
-        name: 'Saturday'
-    },
-    {
-        id: 2,
-        name: 'Sunday'
-    },
-    {
-        id: 3,
-        name: 'Monday'
-    },
-    {
-        id: 4,
-        name: 'Tuesday'
-    },
-    {
-        id: 5,
-        name: 'Wednesday'
-    },
-    {
-        id: 6,
-        name: 'Thursday'
-    }
-]
-
-const SelectMenus = () => {
+const BuffetMenus = () => {
     const [searchQuery, setSearchQuery] = useState('');
     const [priceRange, setPriceRange] = useState(20);
     const [selectedCategory, setSelectedCategory] = useState('');
@@ -114,17 +87,9 @@ const SelectMenus = () => {
                                             <h2 className="text-center text-lg lg:text-xl font-bold my-3">{item.name}</h2>
                                             <h2 className="my-2 text-sm font-bold tracking-wide uppercase">{item.category}</h2>
                                             <h3 className='text-lg lg:text-xl'>Price:<span className='text-primary font-bold'> $ {item.price.toFixed(2)}</span></h3>
-                                            <select className="select select-primary select-sm w-40 mt-3">
-                                                <option disabled selected>Select Day</option>
-                                                {
-                                                    days.map((day) => (
-                                                        <option key={day.id}>{day.name}</option>
-                                                    ))
-                                                }
-                                            </select>
                                         </div>
                                         <div className='flex justify-center items-center my-4'>
-                                            <button onClick={() => dispatch(addItem(item))} className="btn btn-outline btn-primary btn-sm normal-case rounded-full">Add To Plate</button>
+                                            <button onClick={() => dispatch(addItem(item))} className="btn btn-outline btn-primary btn-sm normal-case rounded-full">Add This Item</button>
                                         </div>
                                     </div>
                                 ))
@@ -215,6 +180,10 @@ const SelectMenus = () => {
                             }
                         </table>
                     </div>
+                    <div className="grid grid-cols-1 gap-2 p-2">
+                        <input type="date" placeholder="Select Date" className="input input-bordered input-primary" />
+                        <input type="text" placeholder="Time Schedule" className="input input-bordered input-primary" />
+                    </div>
                     <div className="flex justify-center items-center">
                         <Link href='/place-order' className="btn btn-outline btn-primary rounded-full btn-wide mt-4">
                             Place Order
@@ -229,4 +198,4 @@ const SelectMenus = () => {
     )
 }
 
-export default SelectMenus
+export default BuffetMenus

@@ -71,7 +71,7 @@ function ThumbnailPlugin(mainRef: any) {
     }
 }
 
-const DealDetailsOne = () => {
+const CustomMealPlan = () => {
 
     const [sliderRef, instanceRef] = useKeenSlider({
         initial: 0,
@@ -154,7 +154,7 @@ const DealDetailsOne = () => {
                                 ))
                             }
                         </div>
-                        <Link href="/select-menus" className="btn btn-outline btn-primary normal-case rounded-full mt-8">Select Your Favourite Menus</Link>
+                        <Link href="/select-menus" className="btn btn-outline btn-primary normal-case font-semibold rounded-full mt-8">Select Your Favourite Menus</Link>
                     </div>
                 </div>
             </div>
@@ -163,4 +163,4 @@ const DealDetailsOne = () => {
     )
 }
 
-export default DealDetailsOne
+export default CustomMealPlan

@@ -71,7 +71,7 @@ function ThumbnailPlugin(mainRef: any) {
     }
 }
 
-const DealDetailsThree = () => {
+const BuffetSetup = () => {
 
     const [sliderRef, instanceRef] = useKeenSlider({
         initial: 0,
@@ -154,7 +154,7 @@ const DealDetailsThree = () => {
                                 ))
                             }
                         </div>
-                        <Link href="/select-menus" className="btn btn-outline btn-primary normal-case rounded-full mt-8">Select Your Favourite Menus</Link>
+                        <Link href="/buffet-menus" className="btn btn-outline btn-primary normal-case rounded-full mt-8">Select Your Favourite Menus</Link>
                     </div>
                 </div>
             </div>
@@ -163,4 +163,4 @@ const DealDetailsThree = () => {
     )
 }
 
-export default DealDetailsThree
+export default BuffetSetup

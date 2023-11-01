@@ -1,8 +1,9 @@
 "use client"
 import { useKeenSlider } from "keen-slider/react"
 import "keen-slider/keen-slider.min.css"
-import Link from "next/link"
+import regularItems from '@/data/regularItems'
 import PackageReviews from "@/components/views/PackageReviews"
+import Link from "next/link"
 
 const title = "Regular Meal Delivery"
 const description = `A Regular Meal Delivery service for your business.
@@ -71,7 +72,7 @@ function ThumbnailPlugin(mainRef: any) {
     }
 }
 
-const DealDetailsTwo = () => {
+const RegularMealPlan = () => {
 
     const [sliderRef, instanceRef] = useKeenSlider({
         initial: 0,
@@ -112,7 +113,7 @@ const DealDetailsTwo = () => {
 
     return (
         <>
-            <div className="container mx-auto px-2 lg:px-10 mt-5 mb-20 lg:mb-5">
+            <div className="container mx-auto px-2 lg:px-10 mt-5">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8">
                     <div className="grid grid-cols-1 gap-y-2 place-items-center">
                         <div ref={sliderRef} className="keen-slider">
@@ -154,8 +155,37 @@ const DealDetailsTwo = () => {
                                 ))
                             }
                         </div>
-                        <Link href="/select-menus" className="btn btn-outline btn-primary normal-case rounded-full mt-8">Select Your Favourite Menus</Link>
+                        <Link href="/select-pricing-plan" className="btn btn-outline btn-primary normal-case font-semibold rounded-full mt-8">Book This Pack</Link>
                     </div>
+                </div>
+            </div>
+            <div className="container mx-auto px-2 lg:px-10 mt-5 mb-20 lg:mb-5">
+                <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 place-items-center">
+                    {
+                        regularItems.map((singleItem) => (
+                            <div className="card bg-base-100 hover:shadow-lg" key={singleItem.id}>
+                                <div className="card-body">
+                                    <h2 className="text-xl text-center text-primary font-bold mb-3">{singleItem.day}</h2>
+                                    <div className="grid grid-cols-1 gap-2 place-items-start">
+                                        {
+                                            singleItem.items.map((item, index) => (
+                                                <div className="flex justify-center items-center space-x-3 hover:text-primary" key={index}>
+                                                    <div className="avatar">
+                                                        <div className="mask mask-squircle w-12 h-12">
+                                                            <img src={item.image} alt={item.name} />
+                                                        </div>
+                                                    </div>
+                                                    <div>
+                                                        <h3 className="text-base font-semibold">{item.name}</h3>
+                                                    </div>
+                                                </div>
+                                            ))
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        ))
+                    }
                 </div>
             </div>
             <PackageReviews />
@@ -163,4 +193,4 @@ const DealDetailsTwo = () => {
     )
 }
 
-export default DealDetailsTwo
+export default RegularMealPlan
