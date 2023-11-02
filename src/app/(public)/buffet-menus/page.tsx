@@ -185,8 +185,8 @@ const BuffetMenus = () => {
                         <input type="text" placeholder="Time Schedule" className="input input-bordered input-primary" />
                     </div>
                     <div className="flex justify-center items-center">
-                        <Link href='/place-order' className="btn btn-outline btn-primary rounded-full btn-wide mt-4">
-                            Place Order
+                        <Link href='/pricing-plans' className="btn btn-outline btn-primary rounded-full btn-wide mt-4">
+                            Book Now
                         </Link>
                     </div>
                     <div className="modal-action">
