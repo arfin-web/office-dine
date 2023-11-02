@@ -1,14 +1,17 @@
-const title = "About"
-const colorTitle = "Us"
-const description = "Lorem Ipsum is simply dummy text of the printing healthy typesetting industry."
+import Image from "next/image"
 
 const AboutSection = () => {
     return (
-        <div className="hero min-h-screen my-10" style={{ backgroundImage: "url(/about.png)" }}>
+        <div className="hero min-h-screen my-10" style={{ backgroundImage: "url(/aboutbg.png)" }}>
             <div className="hero-content text-center">
-                <div className="max-w-md">
-                    <h1 className="mb-5 text-3xl lg:text-5xl font-bold animate__animated animate__bounceInDown">{title}<span className="text-primary"> {colorTitle}</span></h1>
-                    <p className="mb-5 lg:ml-7">{description}</p>
+                <div className="max-w-md mb-14">
+                    <Image
+                        src='/aboutImg.png'
+                        alt="About Us"
+                        width={500}
+                        height={500}
+                        className="animate-pulse"
+                    />
                 </div>
             </div>
         </div>

@@ -155,7 +155,7 @@ const RegularMealPlan = () => {
                                 ))
                             }
                         </div>
-                        <Link href="/select-pricing-plan" className="btn btn-outline btn-primary normal-case font-semibold rounded-full mt-8">Book This Pack</Link>
+                        <Link href="/pricing-plans" className="btn btn-outline btn-primary normal-case font-semibold rounded-full mt-8">Book This Pack</Link>
                     </div>
                 </div>
             </div>

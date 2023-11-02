@@ -27,7 +27,7 @@ const TopFeatures = () => {
                     {toFeatures.map(item => (
                         <div className={`card ${item.bgColor} text-base-100 rounded-none shadow-none py-10`} key={item.id}>
                             <div className="card-body justify-center items-center text-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" className="animate__animated animate__rubberBand" width="60" height="60" fill="hsl(var(--b1))" viewBox="0 0 256 256"><path d={item.icon}></path></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" className="hover:animate-spin" width="60" height="60" fill="hsl(var(--b1))" viewBox="0 0 256 256"><path d={item.icon}></path></svg>
                                 <h2 className="card-title text-2xl">{item.title}</h2>
                             </div>
                         </div>
