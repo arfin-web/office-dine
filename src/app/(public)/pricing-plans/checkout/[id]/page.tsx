@@ -10,7 +10,8 @@ const CheckOut = ({ params }: { params: { id: number } }) => {
     const totalAmount = cart.reduce((total, item: any) => {
         return total + item.price;
     }, 0);
-    const totalPayment = totalAmount.toFixed(2)
+    const initialPayment = totalAmount * params.id
+    const totalPayment = initialPayment.toFixed(2)
 
     return (
         <>
