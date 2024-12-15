@@ -9,7 +9,7 @@ const menus = [
     {
         id: 2,
         name: "All Items",
-        link: "/all-items"
+        link: "/select-menus"
     },
 ]
 

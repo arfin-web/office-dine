@@ -1,3 +1,6 @@
+import { checkRole } from '@/utils/roles'
+import { redirect } from 'next/navigation'
+
 const stats = [
     {
         id: 1,
@@ -19,7 +22,12 @@ const stats = [
     },
 ]
 
-const AdminDashboard = () => {
+const AdminDashboard = async () => {
+    // Protect the page from users who are not admins
+    const isAdmin = await checkRole('admin')
+    if (!isAdmin) {
+        redirect('/')
+    }
     return (
         <>
             <div className="container mx-auto px-2 lg:px-5 mt-5 mb-20 lg:mb-5">
