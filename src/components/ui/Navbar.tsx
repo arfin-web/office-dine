@@ -5,6 +5,7 @@ import { MdDashboardCustomize, MdOutlineDashboardCustomize } from 'react-icons/m
 import NavMenus from "./NavMenus"
 import { checkRole } from '@/utils/roles'
 import { PiLock, PiLockFill } from "react-icons/pi";
+import Logo from "./Logo";
 
 const Navbar = async () => {
     const user: User | null = await currentUser();
@@ -19,7 +20,7 @@ const Navbar = async () => {
                 </div>
                 <div className="navbar-center">
                     <Link href='/'>
-                        <img className="w-20 animate__animated animate__heartBeat" src="/logo.png" alt="logo" />
+                        <Logo />
                     </Link>
                 </div>
                 <div className="navbar-end">

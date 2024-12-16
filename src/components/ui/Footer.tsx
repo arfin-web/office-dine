@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Logo from "./Logo"
 
 const Footer = () => {
     return (
@@ -7,7 +8,7 @@ const Footer = () => {
                 <footer className="footer p-10 bg-base-200 text-base-content">
                     <aside>
                         <Link href='/'>
-                            <img className="w-20" src="/logo.png" alt="logo" />
+                            <Logo />
                         </Link>
                         <p className="font-semibold">Your Office Foodie Friend</p>
                     </aside>

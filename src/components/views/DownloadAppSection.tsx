@@ -34,7 +34,7 @@ const DownloadAppSection = () => {
                                 </div>
                             </div>
                             <div>
-                                <img src="/app.png" className="w-80 lg:w-96 animate__animated animate__fadeInRightBig" />
+                                <img src="https://ik.imagekit.io/b1ty4nofq/office-dine/app.png?updatedAt=1734339758477" className="w-80 lg:w-96 animate__animated animate__fadeInRightBig" />
                             </div>
                         </div>
                     </div>

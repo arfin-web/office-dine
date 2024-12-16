@@ -1,3 +1,5 @@
+import BookingChart from '@/components/dashboard/BookingChart'
+import UserStatsChart from '@/components/dashboard/UserStatsChart'
 import { checkRole } from '@/utils/roles'
 import { redirect } from 'next/navigation'
 
@@ -41,6 +43,14 @@ const UserDashboard = async () => {
                             </div>
                         ))
                     }
+                </div>
+                <div className='grid grid-cols-1 lg:grid-cols-3 gap-2'>
+                    <div className='lg:col-span-2'>
+                        <UserStatsChart />
+                    </div>
+                    <div>
+                        <BookingChart />
+                    </div>
                 </div>
             </div>
         </>

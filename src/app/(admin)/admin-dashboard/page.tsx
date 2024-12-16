@@ -1,3 +1,5 @@
+import AdminStatsChart from '@/components/dashboard/AdminStatsChart'
+import FoodItemsChart from '@/components/dashboard/FoodItemsChart'
 import { checkRole } from '@/utils/roles'
 import { redirect } from 'next/navigation'
 
@@ -41,6 +43,14 @@ const AdminDashboard = async () => {
                             </div>
                         ))
                     }
+                </div>
+                <div className='grid grid-cols-1 lg:grid-cols-3 gap-2'>
+                    <div className='lg:col-span-2'>
+                        <AdminStatsChart />
+                    </div>
+                    <div>
+                        <FoodItemsChart />
+                    </div>
                 </div>
             </div>
         </>

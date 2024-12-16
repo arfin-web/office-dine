@@ -2,9 +2,11 @@ import { UserButton, currentUser } from "@clerk/nextjs";
 import type { User } from "@clerk/nextjs/api";
 import Link from "next/link"
 import { MdDashboardCustomize, MdOutlineDashboardCustomize } from "react-icons/md";
+import { checkRole } from '@/utils/roles'
 
 const MobileProfile = async () => {
     const user: User | null = await currentUser();
+    const isAdmin = await checkRole('admin')
     return (
         <>
             <ul className="menu bg-base-100">
@@ -19,18 +21,23 @@ const MobileProfile = async () => {
                     </div>
                     <hr />
                 </li>
-                <li>
-                    <Link href='/dashboard' className="text-lg font-semibold hover:text-primary hover:font-bold">
-                        <span><MdOutlineDashboardCustomize /></span>
-                        User DashBboard
-                    </Link>
-                </li>
-                <li>
-                    <Link href='/admin-dashboard' className="text-lg font-semibold hover:text-primary hover:font-bold">
-                        <span><MdDashboardCustomize /></span>
-                        Admin DashBoard
-                    </Link>
-                </li>
+                {
+                    isAdmin ? <li>
+                        <Link href='/admin-dashboard' className="text-lg font-semibold hover:text-primary hover:font-bold">
+                            <span><MdDashboardCustomize /></span>
+                            Admin DashBoard
+                        </Link>
+                    </li> : <>
+                        {
+                            user && !isAdmin && <li>
+                                <Link href='/dashboard' className="text-lg font-semibold hover:text-primary hover:font-bold">
+                                    <span><MdOutlineDashboardCustomize /></span>
+                                    User DashBboard
+                                </Link>
+                            </li>
+                        }
+                    </>
+                }
             </ul>
         </>
     )

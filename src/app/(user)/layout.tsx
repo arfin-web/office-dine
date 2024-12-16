@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { UserButton } from "@clerk/nextjs";
+import Logo from '@/components/ui/Logo';
 
 const userMenus = [
     {
@@ -63,7 +64,7 @@ export default function UserLayout({
                             {/* Sidebar content here */}
                             <li className='mb-10'>
                                 <Link href='/' className='flex justify-center items-center'>
-                                    <img className="w-20" src="/logo.png" alt="logo" />
+                                    <Logo />
                                 </Link>
                             </li>
                             {

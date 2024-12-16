@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import { UserButton } from "@clerk/nextjs";
-
-const avatarImg = "https://img.freepik.com/free-photo/bohemian-man-with-his-arms-crossed_1368-3542.jpg?w=740&t=st=1697192467~exp=1697193067~hmac=a919f78d91bbf83fc207005d92c9ecc8e848e7c7bae964afdb36b665de9859f3"
+import Logo from '@/components/ui/Logo';
 
 const adminMenus = [
     {
@@ -83,7 +82,7 @@ export default function AdminLayout({
                             {/* Sidebar content here */}
                             <li className='mb-10'>
                                 <Link href='/' className='flex justify-center items-center'>
-                                    <img className="w-20" src="/logo.png" alt="logo" />
+                                    <Logo />
                                 </Link>
                             </li>
                             {

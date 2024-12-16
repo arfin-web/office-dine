@@ -33,7 +33,7 @@ const HowItWorksSection = () => {
             <div className="container mx-auto px-2 lg:px-10 py-5 my-10">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 place-items-center">
                     <Image
-                        src="/steps.png"
+                        src="https://ik.imagekit.io/b1ty4nofq/office-dine/steps.png?updatedAt=1734339676213"
                         width={500}
                         height={500}
                         alt="Steps"
