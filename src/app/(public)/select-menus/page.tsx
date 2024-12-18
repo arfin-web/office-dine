@@ -1,71 +1,60 @@
-"use client"
-import { useState } from "react";
-import foodItems from '@/data/foodItems'
-import { useAppSelector, useAppDispatch } from "@/redux/hooks"
-import { addItem } from '@/redux/features/cartSlice'
+"use client";
+import { useState, useEffect } from "react";
+import foodItems from "@/data/foodItems";
+import { useAppSelector, useAppDispatch } from "@/redux/hooks";
+import { addItem, removeItem } from "@/redux/features/cartSlice";
 import Link from "next/link";
 
-const title = "All"
-const colorTitle = "Items"
-const subTitle = "Pick The Best Option For You"
-
-const days = [
-    {
-        id: 1,
-        name: 'Saturday'
-    },
-    {
-        id: 2,
-        name: 'Sunday'
-    },
-    {
-        id: 3,
-        name: 'Monday'
-    },
-    {
-        id: 4,
-        name: 'Tuesday'
-    },
-    {
-        id: 5,
-        name: 'Wednesday'
-    },
-    {
-        id: 6,
-        name: 'Thursday'
-    }
-]
-
 const SelectMenus = () => {
-    const [searchQuery, setSearchQuery] = useState('');
+    const [searchQuery, setSearchQuery] = useState("");
     const [priceRange, setPriceRange] = useState(20);
-    const [selectedCategory, setSelectedCategory] = useState('');
-    const cart = useAppSelector((state) => state.cart.items)
-    const dispatch = useAppDispatch()
+    const [selectedCategory, setSelectedCategory] = useState("");
+    const [selectedDay, setSelectedDay] = useState("")
+    const [selectedDays, setSelectedDays] = useState<Record<number, string>>({}); // Store selected day for each item
+    const cart = useAppSelector((state) => state.cart.items);
+    const dispatch = useAppDispatch();
+
+    // Save cart to localStorage whenever it changes
+    useEffect(() => {
+        localStorage.setItem("cart", JSON.stringify(cart));
+    }, [cart]);
+
+    const handleDayChange = (itemId: number, day: string) => {
+        setSelectedDays((prev) => ({
+            ...prev,
+            [itemId]: day,
+        }));
+    };
+
+    const handleAddToCart = (item: any) => {
+        const day = selectedDays[item.id];
+        if (!day) {
+            alert("Please select a day before adding to the cart!");
+            return;
+        }
+        dispatch(addItem({ ...item, day })); // Add selected day with item
+    };
 
     const searchedItems = searchQuery
-        ? foodItems?.filter(
+        ? foodItems.filter(
             (food) =>
                 food.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
                 food.category.toLowerCase().includes(searchQuery.toLowerCase())
         )
         : foodItems;
 
+    const filteredfoods = selectedCategory
+        ? searchedItems.filter((item) => {
+            const isCategoryMatch = selectedCategory
+                ? item.category.toLowerCase() === selectedCategory.toLowerCase()
+                : true;
+            return isCategoryMatch;
+        })
+        : searchedItems;
 
-    const filteredfoods =
-        selectedCategory
-            ? searchedItems?.filter((item) => {
-                const isCategoryMatch = selectedCategory
-                    ? item.category.toLowerCase() === selectedCategory.toLowerCase()
-                    : true;
-                return isCategoryMatch
-            })
-            : searchedItems;
-    const categories = Array.from(new Set(foodItems?.map((food) => food.category)));
-
+    const categories = Array.from(new Set(foodItems.map((food) => food.category)));
     const filteredItems = filteredfoods.filter((item) => item.price <= priceRange);
 
-    // Function to update the price range
     const handlePriceChange = (e: any) => {
         setPriceRange(parseFloat(e.target.value));
     };
@@ -101,34 +90,56 @@ const SelectMenus = () => {
                     </div>
                     <hr />
                     <div className="container mx-auto px-2 lg:px-10 mt-5 mb-20 lg:mb-5">
-                        <h3 className="text-3xl text-center font-bold mb-4">{title}<span className="text-primary"> {colorTitle}</span></h3>
-                        <p className="text-center mb-10">{subTitle}</p>
+                        <h3 className="text-3xl text-center font-bold mb-4">All <span className="text-primary">Items</span></h3>
+                        <p className="text-center mb-10">Pick The Best Option For You</p>
                         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 place-items-center">
-                            {
-                                filteredItems.map(item => (
-                                    <div className="card w-80 bg-base-100 hover:shadow-lg" key={item.id}>
-                                        <figure className='px-3'>
-                                            <img src={item.image} alt={item.name} className="rounded-xl" />
-                                        </figure>
-                                        <div className="px-3">
-                                            <h2 className="text-center text-lg lg:text-xl font-bold my-3">{item.name}</h2>
-                                            <h2 className="my-2 text-sm font-bold tracking-wide uppercase">{item.category}</h2>
-                                            <h3 className='text-lg lg:text-xl'>Price:<span className='text-primary font-bold'> $ {item.price.toFixed(2)}</span></h3>
-                                            <select className="select select-primary select-sm w-40 mt-3">
-                                                <option disabled selected>Select Day</option>
-                                                {
-                                                    days.map((day) => (
-                                                        <option key={day.id}>{day.name}</option>
-                                                    ))
-                                                }
-                                            </select>
-                                        </div>
-                                        <div className='flex justify-center items-center my-4'>
-                                            <button onClick={() => dispatch(addItem(item))} className="btn btn-outline btn-primary btn-sm normal-case rounded-full">Add To Plate</button>
-                                        </div>
+                            {filteredItems.map((item) => (
+                                <div className="card w-80 bg-base-100 hover:shadow-lg" key={item.id}>
+                                    <figure className="px-3">
+                                        <img src={item.image} alt={item.name} className="rounded-xl" />
+                                    </figure>
+                                    <div className="px-3">
+                                        <h2 className="text-center text-lg lg:text-xl font-bold my-3">{item.name}</h2>
+                                        <h2 className="my-2 text-sm font-bold tracking-wide uppercase">{item.category}</h2>
+                                        <h3 className="text-lg lg:text-xl">
+                                            Price: <span className="text-primary font-bold">$ {item.price.toFixed(2)}</span>
+                                        </h3>
+                                        <select
+                                            className="select select-primary select-sm w-40 mt-3"
+                                            value={selectedDay}
+                                            onChange={(e) => setSelectedDay(e.target.value)}
+                                        >
+                                            <option disabled value="">
+                                                Select Day
+                                            </option>
+                                            {[
+                                                "Saturday",
+                                                "Sunday",
+                                                "Monday",
+                                                "Tuesday",
+                                                "Wednesday",
+                                                "Thursday",
+                                            ].map((day, idx) => (
+                                                <option key={idx} value={day}>
+                                                    {day}
+                                                </option>
+                                            ))}
+                                        </select>
                                     </div>
-                                ))
-                            }
+                                    <div className="flex justify-center items-center my-4">
+                                        <button
+                                            onClick={() =>
+                                                selectedDay
+                                                    ? dispatch(addItem({ ...item, day: selectedDay }))
+                                                    : alert("Please select a day")
+                                            }
+                                            className="btn btn-outline btn-primary btn-sm normal-case rounded-full"
+                                        >
+                                            Add To Plate
+                                        </button>
+                                    </div>
+                                </div>
+                            ))}
                         </div>
                     </div>
                 </div>
@@ -185,10 +196,10 @@ const SelectMenus = () => {
                 <div className="modal-box w-auto">
                     <h1 className="text-2xl font-bold my-5">My<span className="text-primary"> Cart</span></h1>
                     <div className="overflow-x-auto">
-                        <table className="table">
-                            {
-                                cart.map((item: any) => (
-                                    <tr key={item.id}>
+                        {
+                            cart.length > 0 ? <table className="table">
+                                {cart.map((item: any) => (
+                                    <tr key={item.id + item.day}>
                                         <td>
                                             <div className="flex items-center space-x-3">
                                                 <div className="avatar">
@@ -203,23 +214,33 @@ const SelectMenus = () => {
                                             </div>
                                         </td>
                                         <td>
-                                            <div className="font-bold text-primary">$ {item.price}</div>
+                                            <div className="font-bold text-primary">$ {item.price.toFixed(2)}</div>
+                                        </td>
+                                        <td>
+                                            <div className="text-sm font-semibold text-gray-600">{item.day}</div>
                                         </td>
                                         <th>
-                                            <button className="btn btn-circle btn-error btn-sm lg:btn-md">
-                                                <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 lg:w-8 lg:h-8" fill="hsl(var(--b1))" viewBox="0 0 256 256"><path d="M216,48H176V40a24,24,0,0,0-24-24H104A24,24,0,0,0,80,40v8H40a8,8,0,0,0,0,16h8V208a16,16,0,0,0,16,16H192a16,16,0,0,0,16-16V64h8a8,8,0,0,0,0-16ZM96,40a8,8,0,0,1,8-8h48a8,8,0,0,1,8,8v8H96Zm96,168H64V64H192ZM112,104v64a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0Zm48,0v64a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0Z"></path></svg>
+                                            <button
+                                                onClick={() => dispatch(removeItem({ id: item.id, day: item.day }))}
+                                                className="btn btn-circle btn-error btn-sm lg:btn-md"
+                                            >
+                                                <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 lg:w-8 lg:h-8" fill="hsl(var(--b1))" viewBox="0 0 256 256">
+                                                    <path d="M216,48H176V40a24,24,0,0,0-24-24H104A24,24,0,0,0,80,40v8H40a8,8,0,0,0,0,16h8V208a16,16,0,0,0,16,16H192a16,16,0,0,0,16-16V64h8a8,8,0,0,0,0-16ZM96,40a8,8,0,0,1,8-8h48a8,8,0,0,1,8,8v8H96Zm96,168H64V64H192ZM112,104v64a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0Zm48,0v64a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0Z"></path>
+                                                </svg>
                                             </button>
                                         </th>
                                     </tr>
-                                ))
-                            }
-                        </table>
+                                ))}
+                            </table> : <h1>Your <span className="text-primary">Cart</span> is empty</h1>
+                        }
                     </div>
-                    <div className="flex justify-center items-center">
-                        <Link href='/pricing-plans' className="btn btn-outline btn-primary rounded-full btn-wide mt-4">
-                            Confirm
-                        </Link>
-                    </div>
+                    {
+                        cart.length > 0 && <div className="flex justify-center items-center">
+                            <Link href='/pricing-plans' className="btn btn-outline btn-primary rounded-full btn-wide mt-4">
+                                Confirm
+                            </Link>
+                        </div>
+                    }
                     <div className="modal-action">
                         <label htmlFor="my_modal_6" className="btn btn-sm">Close!</label>
                     </div>
