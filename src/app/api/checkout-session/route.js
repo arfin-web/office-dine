@@ -5,6 +5,9 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
     apiVersion: '2022-11-15', // Match your Stripe version
 });
 
+// purchased items
+export const purchasedItems = []
+
 export async function POST(req) {
     try {
         const { items } = await req.json();
@@ -26,7 +29,7 @@ export async function POST(req) {
             success_url: `${req.headers.get('origin')}/success`,
             cancel_url: `${req.headers.get('origin')}/cancel`,
         });
-
+        purchasedItems.push(...items)
         return NextResponse.json({ id: session.id });
     } catch (error) {
         return NextResponse.json({ error: error.message }, { status: 500 });

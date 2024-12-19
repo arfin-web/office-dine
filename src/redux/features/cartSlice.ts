@@ -30,6 +30,20 @@ const cartSlice = createSlice({
             }
             state.items.push(action.payload);
         },
+        purchasedItem: (state, action) => {
+            const existingItem = state.items.find(
+                item => item.id === action.payload.id && item.day === action.payload.day
+            );
+
+            if (!existingItem) {
+                // Add the new item to the purchased list if it doesn't exist
+                state.items.push({
+                    ...action.payload,
+                });
+            }
+            // If the item already exists, do nothing (or add additional logic if needed)
+        },
+
         // Redux Slice - cartSlice.js
         removeItem: (state, action) => {
             const { id, day } = action.payload; // Use both `id` and `day` to identify the item
@@ -38,5 +52,5 @@ const cartSlice = createSlice({
     },
 });
 
-export const { addItem, removeItem } = cartSlice.actions;
+export const { addItem, purchasedItem, removeItem } = cartSlice.actions;
 export default cartSlice.reducer;
